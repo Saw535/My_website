@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <h2>Welcome to My Website</h2>
+  <ul>
+    {% for author in authors %}
+      <li><a href="{% url 'author_detail' author.id %}">{{ author.name }}</a></li>
+    {% endfor %}
+  </ul>
+  <h3>Quotes:</h3>
+  <ul>
+    {% for quote in quotes %}
+      <li>{{ quote.text }} - {{ quote.author.name }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
